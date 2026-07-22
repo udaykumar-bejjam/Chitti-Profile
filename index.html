@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     :root {
       --navy: #0f2744;
@@ -127,28 +128,48 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-family: "Fraunces", Georgia, serif;
       font-weight: 700;
       font-size: 1.15rem;
       letter-spacing: 0.02em;
     }
 
+    .logo i {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 8px;
       list-style: none;
     }
 
     .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       color: var(--muted);
       text-decoration: none;
       font-size: 0.92rem;
-      transition: color 0.25s;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: color 0.25s, background 0.25s;
+    }
+
+    .nav-links a i {
+      font-size: 0.85rem;
+      color: var(--gold);
+      opacity: 0.85;
     }
 
     .nav-links a:hover {
       color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .btn {
@@ -219,8 +240,7 @@
       animation: fade-up 0.8s ease both;
     }
 
-    .hero-badge .medal {
-      display: inline-block;
+    .hero-badge i {
       animation: shimmer 2.5s ease-in-out infinite;
     }
 
@@ -257,23 +277,27 @@
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 14px;
       animation: fade-up 0.8s ease 0.4s both;
     }
 
     .meta-item {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 0.9rem;
       color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
     }
 
-    .meta-item svg {
-      width: 18px;
-      height: 18px;
+    .meta-item i {
       color: var(--gold);
-      flex-shrink: 0;
+      font-size: 0.9rem;
+      width: 16px;
+      text-align: center;
     }
 
     .hero-visual {
@@ -321,6 +345,25 @@
       color: var(--gold-light);
       box-shadow: 0 0 40px rgba(212, 167, 44, 0.2);
       animation: avatar-glow 4s ease-in-out infinite;
+      position: relative;
+    }
+
+    .avatar::after {
+      content: "\f0c3";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #1a1200;
+      font-size: 0.72rem;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--navy);
     }
 
     @keyframes avatar-glow {
@@ -332,6 +375,21 @@
       font-size: 1rem;
       color: var(--muted);
       margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .profile-title .role-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-title i {
+      color: var(--gold);
+      font-size: 0.85rem;
     }
 
     .stat-row {
@@ -344,6 +402,13 @@
       background: rgba(0, 0, 0, 0.2);
       border-radius: 14px;
       padding: 14px 8px;
+    }
+
+    .stat i {
+      display: block;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
     .stat strong {
@@ -362,6 +427,9 @@
 
     .floating-badge {
       position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: rgba(8, 21, 38, 0.9);
       border: 1px solid var(--card-border);
       border-radius: 14px;
@@ -372,9 +440,17 @@
       animation: bob 5s ease-in-out infinite;
     }
 
+    .floating-badge i {
+      font-size: 0.9rem;
+    }
+
     .floating-badge-1 {
       top: -12px;
       right: -8px;
+      color: var(--mint);
+    }
+
+    .floating-badge-1 i {
       color: var(--mint);
     }
 
@@ -383,6 +459,10 @@
       left: -20px;
       color: var(--gold-light);
       animation-delay: -2.5s;
+    }
+
+    .floating-badge-2 i {
+      color: var(--gold);
     }
 
     @keyframes bob {
@@ -394,16 +474,33 @@
       padding: 56px 0;
     }
 
+    .section-header {
+      margin-bottom: 32px;
+    }
+
     .section-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       font-family: "Fraunces", Georgia, serif;
       font-size: clamp(1.6rem, 3vw, 2rem);
       margin-bottom: 10px;
     }
 
+    .section-title i {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(212, 167, 44, 0.15);
+      color: var(--gold);
+      display: inline-grid;
+      place-items: center;
+      font-size: 1rem;
+    }
+
     .section-lead {
       color: var(--muted);
       max-width: 560px;
-      margin-bottom: 32px;
     }
 
     .reveal {
@@ -438,17 +535,21 @@
     }
 
     .about-card .icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: rgba(212, 167, 44, 0.15);
       display: grid;
       place-items: center;
-      font-size: 1.3rem;
       margin-bottom: 14px;
+      color: var(--gold);
+      font-size: 1.2rem;
     }
 
     .about-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 1.05rem;
       margin-bottom: 8px;
     }
@@ -465,6 +566,9 @@
     }
 
     .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 10px 18px;
       border-radius: 999px;
       background: var(--card);
@@ -473,6 +577,11 @@
       font-weight: 500;
       transition: all 0.3s;
       animation: chip-in 0.5s ease both;
+    }
+
+    .skill-chip i {
+      color: var(--gold);
+      font-size: 0.85rem;
     }
 
     .skill-chip:hover {
@@ -507,23 +616,36 @@
     }
 
     .timeline-item::before {
-      content: "";
+      content: "\f19d";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
       position: absolute;
-      left: -35px;
-      top: 6px;
-      width: 12px;
-      height: 12px;
+      left: -39px;
+      top: 2px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: var(--gold);
+      color: #1a1200;
+      font-size: 0.55rem;
+      display: grid;
+      place-items: center;
       box-shadow: 0 0 12px var(--gold-glow);
     }
 
     .timeline-item h3 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
       font-size: 1rem;
       margin-bottom: 4px;
     }
 
     .timeline-item .date {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-size: 0.82rem;
       color: var(--gold);
       margin-bottom: 6px;
@@ -535,9 +657,10 @@
     }
 
     .gold-tag {
-      display: inline-block;
-      margin-left: 8px;
-      padding: 2px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
       border-radius: 6px;
       background: linear-gradient(135deg, rgba(245, 215, 110, 0.2), rgba(212, 167, 44, 0.15));
       border: 1px solid rgba(212, 167, 44, 0.4);
@@ -545,6 +668,38 @@
       font-size: 0.75rem;
       font-weight: 700;
       vertical-align: middle;
+    }
+
+    .highlights-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .highlight-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .highlight-pill i {
+      color: var(--gold);
+      font-size: 1rem;
+      width: 18px;
+      text-align: center;
+    }
+
+    .highlight-pill strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.92rem;
     }
 
     .download-section {
@@ -582,6 +737,19 @@
       z-index: 1;
     }
 
+    .download-card .download-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: rgba(212, 167, 44, 0.18);
+      color: var(--gold-light);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      border: 1px solid rgba(212, 167, 44, 0.35);
+    }
+
     .download-card h2 {
       font-family: "Fraunces", Georgia, serif;
       font-size: 1.8rem;
@@ -601,17 +769,53 @@
       padding: 16px 32px;
     }
 
-    .download-btn svg {
-      width: 20px;
-      height: 20px;
-    }
-
     footer {
       border-top: 1px solid var(--card-border);
       padding: 28px 0 40px;
       text-align: center;
       color: var(--muted);
       font-size: 0.88rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      text-decoration: none;
+      transition: color 0.25s, border-color 0.25s, transform 0.25s;
+    }
+
+    .footer-social a:hover {
+      color: var(--gold);
+      border-color: rgba(212, 167, 44, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-note i {
+      color: var(--gold);
     }
 
     @keyframes fade-up {
@@ -637,7 +841,8 @@
         margin: 0 auto;
       }
 
-      .about-grid {
+      .about-grid,
+      .highlights-row {
         grid-template-columns: 1fr;
       }
 
@@ -666,14 +871,20 @@
 
   <nav>
     <div class="container nav-inner">
-      <div class="logo">Jessika Seedarla</div>
+      <div class="logo">
+        <i class="fa-solid fa-dna" aria-hidden="true"></i>
+        Jessika Seedarla
+      </div>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#resume">Resume</a></li>
+        <li><a href="#about"><i class="fa-solid fa-user" aria-hidden="true"></i> About</a></li>
+        <li><a href="#skills"><i class="fa-solid fa-flask" aria-hidden="true"></i> Skills</a></li>
+        <li><a href="#education"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education</a></li>
+        <li><a href="#resume"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Resume</a></li>
       </ul>
-      <a class="btn btn-primary" href="jessika_resume.pdf" download="Jessika_Seedarla_Resume.pdf">Download CV</a>
+      <a class="btn btn-primary" href="jessika_resume.pdf" download="Jessika_Seedarla_Resume.pdf">
+        <i class="fa-solid fa-download" aria-hidden="true"></i>
+        Download CV
+      </a>
     </div>
   </nav>
 
@@ -681,7 +892,7 @@
     <section class="hero">
       <div class="hero-content">
         <div class="hero-badge">
-          <span class="medal">🏅</span>
+          <i class="fa-solid fa-medal medal" aria-hidden="true"></i>
           M.Sc. Biotechnology Gold Medalist · 2026
         </div>
         <h1>Building a career in<br>biopharma &amp; life sciences</h1>
@@ -691,22 +902,25 @@
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary download-btn" href="jessika_resume.pdf" download="Jessika_Seedarla_Resume.pdf">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
             Download Resume
           </a>
-          <a class="btn btn-ghost" href="#about">Learn More</a>
+          <a class="btn btn-ghost" href="#about">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Learn More
+          </a>
         </div>
         <div class="hero-meta">
           <div class="meta-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
             9014643431
           </div>
           <div class="meta-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
             chinnijessika@gmail.com
           </div>
           <div class="meta-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
             Markapur, Andhra Pradesh
           </div>
         </div>
@@ -714,20 +928,32 @@
 
       <div class="hero-visual">
         <div class="profile-card">
-          <div class="floating-badge floating-badge-1">🔬 Lab Ready</div>
-          <div class="floating-badge floating-badge-2">⭐ Rank 1 B.Sc.</div>
+          <div class="floating-badge floating-badge-1">
+            <i class="fa-solid fa-microscope" aria-hidden="true"></i>
+            Lab Ready
+          </div>
+          <div class="floating-badge floating-badge-2">
+            <i class="fa-solid fa-ranking-star" aria-hidden="true"></i>
+            Rank 1 B.Sc.
+          </div>
           <div class="avatar">JS</div>
-          <p class="profile-title">M.Sc. Biotechnology · Fresher<br>Entry-Level Biopharma Candidate</p>
+          <p class="profile-title">
+            <span class="role-line"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> M.Sc. Biotechnology · Fresher</span>
+            <span class="role-line"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i> Entry-Level Biopharma Candidate</span>
+          </p>
           <div class="stat-row">
             <div class="stat">
+              <i class="fa-solid fa-award" aria-hidden="true"></i>
               <strong>Gold</strong>
               <span>M.Sc. Medal</span>
             </div>
             <div class="stat">
+              <i class="fa-solid fa-trophy" aria-hidden="true"></i>
               <strong>Rank 1</strong>
               <span>B.Sc. Topper</span>
             </div>
             <div class="stat">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
               <strong>Ready</strong>
               <span>Immediate Join</span>
             </div>
@@ -738,65 +964,92 @@
 
     <section id="about">
       <div class="reveal">
-        <h2 class="section-title">About</h2>
-        <p class="section-lead">
-          Motivated biotechnology graduate seeking an entry-level role in biopharma or life sciences,
-          with practical exposure through dissertation research and analytical laboratory training.
-        </p>
+        <div class="section-header">
+          <h2 class="section-title"><i class="fa-solid fa-user" aria-hidden="true"></i> About</h2>
+          <p class="section-lead">
+            Motivated biotechnology graduate seeking an entry-level role in biopharma or life sciences,
+            with practical exposure through dissertation research and analytical laboratory training.
+          </p>
+        </div>
         <div class="about-grid">
           <article class="about-card">
-            <div class="icon">🧬</div>
+            <div class="icon"><i class="fa-solid fa-dna" aria-hidden="true"></i></div>
             <h3>Dissertation Research</h3>
             <p>Isolated and characterized lactic acid bacteria from fermented fruits using aseptic techniques, selective plating, and biochemical confirmation.</p>
           </article>
           <article class="about-card">
-            <div class="icon">⚗️</div>
+            <div class="icon"><i class="fa-solid fa-vial-circle-check" aria-hidden="true"></i></div>
             <h3>Analytical Training</h3>
             <p>Hands-on HPLC training at CMS Laboratories — instrument handling, sample preparation, and accurate data recording.</p>
           </article>
           <article class="about-card">
-            <div class="icon">📋</div>
+            <div class="icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></div>
             <h3>Quality Mindset</h3>
             <p>Eager to learn industrial processes, follow SOPs, and grow in QC microbiology, analytical testing, or bioprocess support.</p>
           </article>
+        </div>
+        <div class="highlights-row">
+          <div class="highlight-pill">
+            <i class="fa-solid fa-language" aria-hidden="true"></i>
+            <span><strong>Bilingual</strong>Telugu &amp; English</span>
+          </div>
+          <div class="highlight-pill">
+            <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+            <span><strong>NEP SAARTHI</strong>Certified</span>
+          </div>
+          <div class="highlight-pill">
+            <i class="fa-solid fa-plane-departure" aria-hidden="true"></i>
+            <span><strong>Relocatable</strong>Willing to move</span>
+          </div>
+          <div class="highlight-pill">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+            <span><strong>Available</strong>Immediate join</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="skills">
       <div class="reveal">
-        <h2 class="section-title">Core Techniques</h2>
-        <p class="section-lead">Focused laboratory competencies aligned with biopharma and life sciences roles.</p>
+        <div class="section-header">
+          <h2 class="section-title"><i class="fa-solid fa-flask" aria-hidden="true"></i> Core Techniques</h2>
+          <p class="section-lead">Focused laboratory competencies aligned with biopharma and life sciences roles.</p>
+        </div>
         <div class="skills-wrap">
-          <span class="skill-chip">Analytical Techniques</span>
-          <span class="skill-chip">Molecular Biology</span>
-          <span class="skill-chip">Immunology</span>
-          <span class="skill-chip">Microbiology</span>
-          <span class="skill-chip">Aseptic Technique</span>
-          <span class="skill-chip">HPLC Basics</span>
-          <span class="skill-chip">Cell Culture</span>
-          <span class="skill-chip">Documentation</span>
+          <span class="skill-chip"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Analytical Techniques</span>
+          <span class="skill-chip"><i class="fa-solid fa-dna" aria-hidden="true"></i> Molecular Biology</span>
+          <span class="skill-chip"><i class="fa-solid fa-shield-virus" aria-hidden="true"></i> Immunology</span>
+          <span class="skill-chip"><i class="fa-solid fa-bacteria" aria-hidden="true"></i> Microbiology</span>
+          <span class="skill-chip"><i class="fa-solid fa-hand-sparkles" aria-hidden="true"></i> Aseptic Technique</span>
+          <span class="skill-chip"><i class="fa-solid fa-vial" aria-hidden="true"></i> HPLC Basics</span>
+          <span class="skill-chip"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Cell Culture</span>
+          <span class="skill-chip"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Documentation</span>
         </div>
       </div>
     </section>
 
     <section id="education">
       <div class="reveal">
-        <h2 class="section-title">Education</h2>
-        <p class="section-lead">Consistent academic excellence from school through postgraduate studies.</p>
+        <div class="section-header">
+          <h2 class="section-title"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education</h2>
+          <p class="section-lead">Consistent academic excellence from school through postgraduate studies.</p>
+        </div>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="date">2024 – 2026</div>
-            <h3>M.Sc. Biotechnology — Krishna University, Machilipatnam <span class="gold-tag">Gold Medal</span></h3>
+            <div class="date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 2024 – 2026</div>
+            <h3>
+              M.Sc. Biotechnology — Krishna University, Machilipatnam
+              <span class="gold-tag"><i class="fa-solid fa-medal" aria-hidden="true"></i> Gold Medal</span>
+            </h3>
             <p>Advanced coursework and dissertation in biotechnology, molecular biology, and microbiology.</p>
           </div>
           <div class="timeline-item">
-            <div class="date">October 2021</div>
+            <div class="date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> October 2021</div>
             <h3>B.Sc. Biotechnology — Harshini Degree College, Ongole</h3>
             <p>Ranked 1st — consistently topped all semesters with merit certificates and scholarships.</p>
           </div>
           <div class="timeline-item">
-            <div class="date">April 2018</div>
+            <div class="date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> April 2018</div>
             <h3>Intermediate (Bi.P.C) — Narayana Junior College, Ongole</h3>
             <p>Distinction grades with special excellence in Biology.</p>
           </div>
@@ -806,10 +1059,11 @@
 
     <section id="resume" class="download-section">
       <div class="download-card reveal">
+        <div class="download-icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></div>
         <h2>Get the full resume</h2>
         <p>Download the complete 2-page resume with detailed projects, laboratory skills, certifications, and contact information.</p>
         <a class="btn btn-primary download-btn" href="jessika_resume.pdf" download="Jessika_Seedarla_Resume.pdf">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <i class="fa-solid fa-download" aria-hidden="true"></i>
           Download Resume (PDF)
         </a>
       </div>
@@ -817,8 +1071,16 @@
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2026 Jessika Seedarla · Available for biopharma &amp; life sciences opportunities</p>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="mailto:chinnijessika@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+        <a href="tel:9014643431" aria-label="Phone"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
+        <a href="jessika_resume.pdf" download="Jessika_Seedarla_Resume.pdf" aria-label="Download resume"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
+      </div>
+      <p class="footer-note">
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+        © 2026 Jessika Seedarla · Available for biopharma &amp; life sciences opportunities
+      </p>
     </div>
   </footer>
 
