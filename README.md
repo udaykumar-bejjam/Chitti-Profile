@@ -6,8 +6,14 @@ Animated portfolio page and resume for Jessika Seedarla, M.Sc. Biotechnology Gol
 
 **https://udaykumar-bejjam.github.io/Chitti-Profile/**
 
-> **One-time setup required:** In the repo go to **Settings → Pages**, set **Source** to **Deploy from a branch**, choose branch **`gh-pages`** and folder **`/ (root)`**, then save.  
-> If the site stays unavailable, the repo may be private — GitHub Pages on private repos requires a paid plan, or you can make the repo public.
+### Enable GitHub Pages (required one-time step)
+
+GitHub Actions cannot deploy due to a billing lock on the account. Use branch deployment instead:
+
+1. Open **Settings → Pages**: https://github.com/udaykumar-bejjam/Chitti-Profile/settings/pages
+2. Under **Build and deployment → Source**, select **Deploy from a branch**
+3. Branch: **`gh-pages`** · Folder: **`/ (root)`**
+4. Click **Save** — the site goes live in ~1 minute
 
 ## Files
 
