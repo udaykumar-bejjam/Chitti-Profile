@@ -4,9 +4,10 @@ Animated portfolio page and resume for Jessika Seedarla, M.Sc. Biotechnology Gol
 
 ## Live Site
 
-Once deployed, the profile will be available at:
-
 **https://udaykumar-bejjam.github.io/Chitti-Profile/**
+
+> **One-time setup required:** In the repo go to **Settings → Pages**, set **Source** to **Deploy from a branch**, choose branch **`gh-pages`** and folder **`/ (root)`**, then save.  
+> If the site stays unavailable, the repo may be private — GitHub Pages on private repos requires a paid plan, or you can make the repo public.
 
 ## Files
 
