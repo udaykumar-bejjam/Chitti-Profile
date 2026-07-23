@@ -29,11 +29,10 @@ GitHub Actions cannot deploy due to a billing lock on the account. Use branch de
 | `index.html` | Jessika animated profile landing page |
 | `jessika_resume.pdf` | Jessika resume (downloadable) |
 | `jessika_resume.html` | Jessika editable resume source |
-| `uday-profile/` | Uday online profile + hosted PDFs |
+| `uday-profile/` | Uday online profile + tech resume |
 | `uday-profile/index.html` | Uday profile landing page |
-| `uday-profile/Uday_Kumar_Resume.pdf` | Uday resume PDF |
-| `uday-profile/Uday_Kumar_Bejjam_Profile.pdf` | Uday detailed profile PDF |
-| `uday-profile/Latest_Profile.pdf` | Additional uploaded profile PDF |
+| `uday-profile/uday_resume.html` | Technology-themed resume (HTML) |
+| `uday-profile/Uday_Kumar_Bejjam_Tech_Resume.pdf` | Technology-themed resume (PDF download) |
 
 ## Local Preview
 
