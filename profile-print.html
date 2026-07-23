@@ -322,6 +322,17 @@
       .sheet { width: auto; margin: 12px; padding: 24px 20px; }
       .layout, .stats, .pill-row { grid-template-columns: 1fr; }
       .header-top { flex-direction: column; }
+      .toolbar {
+        margin: 0;
+        padding: 10px 12px;
+      }
+      .toolbar a,
+      .toolbar button {
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
+        min-height: 44px;
+        font-size: 10pt;
+      }
     }
   </style>
 </head>
