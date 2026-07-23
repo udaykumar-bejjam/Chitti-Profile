@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jessika Seedarla - Resume (Print)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --ink: #111111;
+      --muted: #444444;
+      --light: #666666;
+      --line: #999999;
+      --panel: #f2f2f2;
+      --sidebar-width: 2.75in;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.42;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .page {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 0 auto;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      height: 100%;
+    }
+
+    .page-full {
+      padding: 0.4in 0.45in;
+    }
+
+    .sidebar {
+      border-right: 2px solid var(--ink);
+      background: var(--panel);
+      padding: 0.38in 0.32in;
+      height: 100%;
+    }
+
+    .main {
+      padding: 0.38in 0.38in 0.34in 0.34in;
+    }
+
+    .avatar-block {
+      text-align: center;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .avatar {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: #fff;
+    }
+
+    .sidebar h1 {
+      font-size: 15pt;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .degree {
+      font-size: 10pt;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1.5px solid var(--ink);
+      padding: 3px 9px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: #fff;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+
+    .contact-list li {
+      display: flex;
+      gap: 8px;
+      font-size: 9.8pt;
+      color: var(--muted);
+      margin-bottom: 8px;
+      word-break: break-word;
+    }
+
+    .contact-list i {
+      width: 13px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .side-section {
+      margin-bottom: 16px;
+    }
+
+    .side-section h2,
+    .main-section h2 {
+      font-size: 9.2pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 4px;
+    }
+
+    .side-section ul,
+    .main-section ul {
+      list-style: none;
+    }
+
+    .side-section li {
+      font-size: 9.6pt;
+      color: var(--muted);
+      margin-bottom: 7px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      line-height: 1.38;
+    }
+
+    .side-section li i {
+      width: 11px;
+      margin-top: 3px;
+      flex-shrink: 0;
+      font-size: 8.5pt;
+    }
+
+    .side-section li strong {
+      color: var(--ink);
+      display: block;
+      font-size: 9.8pt;
+    }
+
+    .main-section {
+      margin-bottom: 13px;
+    }
+
+    .main-section p,
+    .main-section li {
+      font-size: 10pt;
+      color: var(--muted);
+    }
+
+    .main-section ul li {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 6px;
+    }
+
+    .main-section ul li::before {
+      content: "\25A0";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 6pt;
+      color: var(--ink);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .strength-item {
+      font-size: 9.8pt;
+      margin-bottom: 7px;
+      color: var(--muted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .strength-item i {
+      width: 13px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .lang-line { font-size: 10pt; color: var(--muted); }
+
+    .edu-item { margin-bottom: 9px; }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 10pt;
+      color: var(--ink);
+    }
+
+    .edu-date {
+      color: var(--light);
+      font-weight: 600;
+      white-space: nowrap;
+      font-size: 9.5pt;
+    }
+
+    .edu-desc {
+      margin-top: 2px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 1px 6px;
+      border: 1px solid var(--ink);
+      font-size: 7.5pt;
+      font-weight: 700;
+      vertical-align: middle;
+      background: #fff;
+    }
+
+    .interest-box {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 9px 10px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    .meta-line {
+      margin-top: 7px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    .page-2-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .page-2-header h1 {
+      font-size: 17pt;
+      font-weight: 700;
+    }
+
+    .page-2-header .sub {
+      font-size: 9.5pt;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="page-grid">
+      <aside class="sidebar">
+        <div class="avatar-block">
+          <div class="avatar">JS</div>
+          <h1>Jessika Seedarla</h1>
+          <p class="degree">M.Sc. Biotechnology (2026)</p>
+          <span class="badge"><i class="fa-solid fa-medal"></i> Gold Medalist</span>
+        </div>
+
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-phone"></i><span>9014643431</span></li>
+          <li><i class="fa-solid fa-envelope"></i><span>chinnijessika@gmail.com</span></li>
+          <li><i class="fa-solid fa-location-dot"></i><span>Markapur, Andhra Pradesh</span></li>
+        </ul>
+
+        <section class="side-section">
+          <h2><i class="fa-solid fa-flask"></i> Core Techniques</h2>
+          <ul>
+            <li><i class="fa-solid fa-vial"></i><span><strong>Chromatography</strong> HPLC and separation-based analytical methods</span></li>
+            <li><i class="fa-solid fa-dna"></i><span><strong>Electrophoresis</strong> Gel electrophoresis and nucleic acid analysis</span></li>
+            <li><i class="fa-solid fa-chart-line"></i><span><strong>Analytical Techniques</strong> Laboratory analysis workflows and data interpretation</span></li>
+          </ul>
+        </section>
+
+        <section class="side-section">
+          <h2><i class="fa-solid fa-vial"></i> Laboratory Skills</h2>
+          <ul>
+            <li><i class="fa-solid fa-hand-sparkles"></i><span><strong>Aseptic Technique</strong> Sample handling and lab protocols</span></li>
+            <li><i class="fa-solid fa-microscope"></i><span><strong>Microbiology</strong> Culture, staining, pure culture maintenance</span></li>
+            <li><i class="fa-solid fa-file-lines"></i><span><strong>Documentation</strong> Telugu and English reporting</span></li>
+          </ul>
+        </section>
+
+        <section class="side-section">
+          <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
+          <ul>
+            <li><i class="fa-solid fa-award"></i><span>NEP SAARTHI – Education policy and pedagogical training</span></li>
+          </ul>
+        </section>
+      </aside>
+
+      <div class="main">
+        <section class="main-section">
+          <h2><i class="fa-solid fa-user"></i> Career Summary</h2>
+          <p>
+            Recent M.Sc. Biotechnology graduate (2026) and <strong>Gold Medalist</strong> seeking an opportunity in biopharma and life sciences.
+            Brings a strong academic record as a Rank 1 B.Sc. Biotechnology graduate and practical laboratory exposure through dissertation research,
+            academic projects, and analytical laboratory training. Motivated to learn industrial processes, work with SOPs, and grow in QC microbiology,
+            analytical testing, or bioprocess support.
+          </p>
+        </section>
+
+        <section class="main-section">
+          <h2><i class="fa-solid fa-bullseye"></i> Career Objective</h2>
+          <p>
+            To secure an entry-level role in biopharma or life sciences, where I can apply my academic foundation,
+            laboratory training, and eagerness to learn while contributing to quality-focused team work in a regulated environment.
+          </p>
+        </section>
+
+        <section class="main-section">
+          <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+          <div class="edu-item">
+            <div class="edu-header">
+              <span>M.Sc. Biotechnology – Krishna University, Machilipatnam <span class="tag">Gold Medal</span></span>
+              <span class="edu-date">2024 – 2026</span>
+            </div>
+            <p class="edu-desc">Advanced coursework and dissertation in biotechnology, molecular biology, and microbiology with bioprocess and cell culture applications.</p>
+          </div>
+          <div class="edu-item">
+            <div class="edu-header">
+              <span>B.Sc. Biotechnology – Harshini Degree College, Ongole</span>
+              <span class="edu-date">Oct 2021</span>
+            </div>
+            <p class="edu-desc">Highest grades with merit certificates and scholarships for academic excellence.</p>
+          </div>
+          <div class="edu-item">
+            <div class="edu-header">
+              <span>Intermediate (Bi.P.C) – Narayana Junior College, Ongole</span>
+              <span class="edu-date">Apr 2018</span>
+            </div>
+            <p class="edu-desc">Distinction grades with special excellence in Biology.</p>
+          </div>
+          <div class="edu-item">
+            <div class="edu-header">
+              <span>SSC – Sri Chaitanya High School, Markapur</span>
+              <span class="edu-date">May 2016</span>
+            </div>
+            <p class="edu-desc">Strong foundation in science with outstanding performance.</p>
+          </div>
+        </section>
+
+        <section class="main-section">
+          <h2><i class="fa-solid fa-trophy"></i> Academic Achievements</h2>
+          <ul>
+            <li><strong>Gold Medal in M.Sc. Biotechnology</strong> – Outstanding academic performance at Krishna University</li>
+            <li>Ranked 1st in B.Sc. Biotechnology – Topped all semesters at Harshini Degree College</li>
+            <li>Top Scorer in Intermediate (BiPC) – Distinction with excellence in Biology</li>
+            <li>Top Scorer in Class 10 (SSC) – Distinction in Science</li>
+            <li>Merit Certificates &amp; Scholarships – Multiple honors for academic excellence</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="page page-full">
+    <div class="page-2-header">
+      <h1>Jessika Seedarla</h1>
+      <div class="sub">
+        <div><i class="fa-solid fa-envelope"></i> chinnijessika@gmail.com</div>
+        <div><i class="fa-solid fa-phone"></i> 9014643431</div>
+      </div>
+    </div>
+
+    <section class="main-section">
+      <h2><i class="fa-solid fa-flask-vial"></i> Academic Projects &amp; Laboratory Training</h2>
+      <ul>
+        <li><strong>M.Sc. Dissertation – Krishna University, Machilipatnam</strong> – Isolated and characterized lactic acid bacteria (LAB) from spontaneously fermented fruits including apple, orange, grape, and lemon through aseptic sampling, serial dilution, and selective plating on MRS agar. Purified cultures by repeated streaking and confirmed LAB identity using Gram staining, catalase, and oxidase tests, recording colony morphology and microbial growth under controlled incubation.</li>
+        <li><strong>Analytical Laboratory Training – CMS Laboratories</strong> – Completed hands-on training in HPLC (High-Performance Liquid Chromatography) techniques and basic analytical laboratory procedures, developing familiarity with instrument handling, sample preparation, and accurate data recording.</li>
+      </ul>
+    </section>
+
+    <section class="main-section">
+      <h2><i class="fa-solid fa-star"></i> Personal Strengths</h2>
+      <div class="two-col">
+        <div>
+          <div class="strength-item"><i class="fa-solid fa-bolt"></i> Quick Learner – Eager to absorb new concepts, SOPs, and laboratory procedures</div>
+          <div class="strength-item"><i class="fa-solid fa-heart"></i> Hardworking &amp; Dedicated – Proven academic record reflects consistency and commitment</div>
+          <div class="strength-item"><i class="fa-solid fa-magnifying-glass"></i> Detail-Oriented – Focused on accuracy in sample handling and note-taking</div>
+        </div>
+        <div>
+          <div class="strength-item"><i class="fa-solid fa-comments"></i> Excellent Communicator – Fluent in Telugu and English</div>
+          <div class="strength-item"><i class="fa-solid fa-user-graduate"></i> Coachable – Open to guidance, feedback, and structured training</div>
+          <div class="strength-item"><i class="fa-solid fa-plane"></i> Flexible &amp; Adaptable – Willing to relocate for laboratory roles</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <h2><i class="fa-solid fa-language"></i> Languages</h2>
+      <p class="lang-line">Telugu (Native) · English (Advanced) · Hindi (Intermediate)</p>
+    </section>
+
+    <section class="main-section">
+      <h2><i class="fa-solid fa-circle-info"></i> Additional Information</h2>
+      <div class="interest-box">
+        <strong>Key Attributes:</strong> Academic Excellence · Quick Learner · Team Player · Dedicated · Bilingual · Lab-Oriented · Eager to Learn
+      </div>
+      <p class="meta-line"><strong>Areas of Interest:</strong> QC Microbiology · Cell Culture · Bioprocess Dev. · Analytical (HPLC) · Molecular Biology · Microbiology · Lab Safety</p>
+      <p class="meta-line"><strong><i class="fa-solid fa-calendar-check"></i> Availability:</strong> Immediately available. Willing to relocate as required and ready to join with full commitment to learning and professional growth.</p>
+    </section>
+  </div>
+</body>
+</html>
