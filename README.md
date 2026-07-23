@@ -1,10 +1,17 @@
-# Jessika Seedarla — Profile
+# Chitti Profile
 
-Animated portfolio page and resume for Jessika Seedarla, M.Sc. Biotechnology Gold Medalist.
+Static profile pages hosted on GitHub Pages.
 
 ## Live Site
 
 **https://udaykumar-bejjam.github.io/Chitti-Profile/**
+
+| Path | Profile |
+|------|---------|
+| `/` | Jessika Seedarla |
+| `/uday-profile/` | Uday Kumar Bejjam |
+
+Uday profile URL: **https://udaykumar-bejjam.github.io/Chitti-Profile/uday-profile/**
 
 ### Enable GitHub Pages (required one-time step)
 
@@ -17,11 +24,16 @@ GitHub Actions cannot deploy due to a billing lock on the account. Use branch de
 
 ## Files
 
-| File | Description |
-|------|-------------|
-| `index.html` | Animated profile landing page |
-| `jessika_resume.pdf` | 2-page resume (downloadable) |
-| `jessika_resume.html` | Editable resume source |
+| File / Folder | Description |
+|---------------|-------------|
+| `index.html` | Jessika animated profile landing page |
+| `jessika_resume.pdf` | Jessika resume (downloadable) |
+| `jessika_resume.html` | Jessika editable resume source |
+| `uday-profile/` | Uday online profile + hosted PDFs |
+| `uday-profile/index.html` | Uday profile landing page |
+| `uday-profile/Uday_Kumar_Resume.pdf` | Uday resume PDF |
+| `uday-profile/Uday_Kumar_Bejjam_Profile.pdf` | Uday detailed profile PDF |
+| `uday-profile/Latest_Profile.pdf` | Additional uploaded profile PDF |
 
 ## Local Preview
 
@@ -29,7 +41,7 @@ GitHub Actions cannot deploy due to a billing lock on the account. Use branch de
 python -m http.server 8000
 ```
 
-Open http://localhost:8000/
+Open http://localhost:8000/ or http://localhost:8000/uday-profile/
 
 ## Deployment
 
