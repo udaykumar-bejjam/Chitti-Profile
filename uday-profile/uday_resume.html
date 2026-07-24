@@ -87,7 +87,7 @@
         radial-gradient(ellipse 70% 40% at 100% 100%, rgba(224, 168, 32, 0.12), transparent 50%),
         linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
       color: var(--sidebar-text);
-      padding: 0.28in 0.26in;
+      padding: 0.24in 0.24in;
       overflow: hidden;
     }
 
@@ -252,7 +252,7 @@
     }
 
     .main {
-      padding: 0.28in 0.3in 0.24in 0.28in;
+      padding: 0.24in 0.26in 0.2in 0.24in;
       background:
         linear-gradient(180deg, #f7fbfd 0%, #ffffff 28%);
     }
@@ -427,8 +427,9 @@
         margin: 0 !important;
         box-shadow: none !important;
         width: 210mm !important;
-        height: 297mm !important;
-        overflow: hidden !important;
+        min-height: 297mm !important;
+        height: auto !important;
+        overflow: visible !important;
       }
       .page-grid {
         display: grid !important;
@@ -478,7 +479,7 @@
           <p class="meta">Baxter India R&amp;D · Bengaluru</p>
         </div>
 
-        <p class="mono">// systems · scale · ship</p>
+        <p class="mono">// ai · systems · ship</p>
 
         <section class="side-section">
           <h2><i class="fa-solid fa-address-card" aria-hidden="true"></i> Contact</h2>
@@ -493,41 +494,39 @@
         </section>
 
         <section class="side-section">
-          <h2><i class="fa-solid fa-microchip" aria-hidden="true"></i> Core Stack</h2>
+          <h2><i class="fa-solid fa-robot" aria-hidden="true"></i> AI &amp; Core Stack</h2>
           <div class="chip-wrap">
+            <span class="chip warm">Conversational AI</span>
+            <span class="chip warm">DialogFlow</span>
+            <span class="chip warm">AI Assistants</span>
+            <span class="chip warm">Intelligent Automation</span>
+            <span class="chip warm">Python</span>
             <span class="chip">Java</span>
             <span class="chip">Spring Boot</span>
             <span class="chip">Microservices</span>
             <span class="chip">React</span>
             <span class="chip">Angular</span>
             <span class="chip">MongoDB</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">Oracle</span>
             <span class="chip">Azure</span>
-            <span class="chip warm">System Design</span>
-            <span class="chip warm">RBAC</span>
-            <span class="chip warm">Performance</span>
+            <span class="chip">System Design</span>
           </div>
         </section>
 
         <section class="side-section">
           <h2><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Expertise</h2>
           <ul class="side-list">
+            <li>Conversational AI delivery</li>
             <li>End-to-end architecture</li>
             <li>API &amp; service design</li>
             <li>Team leadership &amp; mentoring</li>
-            <li>Build/release reliability</li>
-            <li>Automation &amp; tooling</li>
-            <li>Cross-functional delivery</li>
+            <li>Intelligent automation</li>
           </ul>
         </section>
 
         <section class="side-section">
           <h2><i class="fa-brands fa-google-play" aria-hidden="true"></i> Play Apps</h2>
           <ul class="side-list">
-            <li>Gospel Band</li>
-            <li>UMax</li>
-            <li>Bingo Box</li>
+            <li>Gospel Band · UMax · Bingo Box</li>
           </ul>
         </section>
 
@@ -544,11 +543,11 @@
       <div class="main">
         <header class="main-header">
           <h1>Uday Kumar Bejjam</h1>
-          <p class="title-line">Architect · Baxter India R&amp;D · 10+ Years Experience</p>
+          <p class="title-line">Architect · AI &amp; Full Stack · Baxter India R&amp;D · 10+ Years</p>
           <p class="summary">
-            Full-stack architect specializing in Java, Spring Boot, and microservices.
-            Designs scalable platforms for healthcare and finance, leads delivery from
-            architecture through production, and mentors teams on reliable engineering practice.
+            Architect with hands-on AI delivery — conversational assistants (DialogFlow),
+            intelligent automation, and scalable Java/Spring microservices. Designs platforms
+            that integrate AI services into production systems and mentors teams to ship reliably.
           </p>
         </header>
 
@@ -563,8 +562,7 @@
             <p class="org">Baxter India R&amp;D</p>
             <ul>
               <li>Architected Configuration Manager for hospital devices using React, MongoDB, Java 17, Spring Boot, and Azure.</li>
-              <li>Defined service boundaries, RBAC model, and API contracts across microservices.</li>
-              <li>Led development and reviews; optimized MongoDB schemas, caching, and Azure deployment.</li>
+              <li>Defined service boundaries, RBAC model, and API contracts; optimized schemas, caching, and Azure deployment.</li>
               <li>Mentored engineers and aligned architecture with clinical device configuration needs.</li>
             </ul>
           </div>
@@ -576,8 +574,7 @@
             </div>
             <p class="org">Visa (Foraysoft)</p>
             <ul>
-              <li>Built Customers Credit Risk Management for payment-gateway limit controls and defaulter alerts.</li>
-              <li>Delivered Angular + Java 8 microservices with RocksDB and Oracle for performant risk workflows.</li>
+              <li>Built Customers Credit Risk Management with Angular, Java 8 microservices, RocksDB, and Oracle.</li>
               <li>Owned API design, production support, and documentation for client-facing risk tooling.</li>
             </ul>
           </div>
@@ -601,16 +598,27 @@
             </div>
             <p class="org">Tata Consultancy Services</p>
             <ul>
-              <li>Led a team of 7 on Bank of America small-business credit validation microservices.</li>
-              <li>Delivered Best Buy fulfillment and Digital Assistant (DialogFlow, Scala, Akka) platforms.</li>
-              <li>Built internal automation/tools (AE Media Manager, Evidence Manager, Copybook Manager).</li>
-              <li>Trained teams on Java, Spring, and automation; designed reusable libraries.</li>
+              <li>Delivered Best Buy Digital Assistant — conversational AI (DialogFlow, Scala, Akka) with microservice integration.</li>
+              <li>Built intelligent automation tooling; led a team of 7; trained teams on Java and Spring.</li>
             </ul>
           </div>
         </section>
 
         <section class="main-section">
           <h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Selected Projects</h2>
+
+          <div class="project">
+            <div class="client">Best Buy · Conversational AI</div>
+            <h3>Digital Assistant</h3>
+            <p>AI chatbot for interactive retail assistance — DialogFlow intents, dialogue design, and microservice integration.</p>
+            <div class="tech-row">
+              <span class="tech-tag">DialogFlow</span>
+              <span class="tech-tag">Conversational AI</span>
+              <span class="tech-tag">Scala</span>
+              <span class="tech-tag">Akka</span>
+              <span class="tech-tag">Spring</span>
+            </div>
+          </div>
 
           <div class="project">
             <div class="client">Baxter India R&amp;D</div>
@@ -624,20 +632,6 @@
               <span class="tech-tag">Azure</span>
             </div>
           </div>
-
-          <div class="project">
-            <div class="client">Visa</div>
-            <h3>Customers Credit Risk Management</h3>
-            <p>Limit management and real-time defaulter alerting for Visa payment-gateway customers.</p>
-            <div class="tech-row">
-              <span class="tech-tag">Angular</span>
-              <span class="tech-tag">Java 8</span>
-              <span class="tech-tag">RocksDB</span>
-              <span class="tech-tag">Oracle</span>
-              <span class="tech-tag">Microservices</span>
-            </div>
-          </div>
-
         </section>
 
         <section class="main-section">
