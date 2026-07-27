@@ -8,27 +8,24 @@ Static profile pages hosted on GitHub Pages.
 
 | Path | Profile |
 |------|---------|
-| `/` | Jessika Seedarla |
+| `/` | Jessika Seedarla (Chitti) |
+| `/chitti-profile/` | Jessika Seedarla (Chitti) |
 | `/uday-profile/` | Uday Kumar Bejjam |
 
-Uday profile URL: **https://udaykumar-bejjam.github.io/Chitti-Profile/uday-profile/**
+### Profile links
 
-### Enable GitHub Pages (required one-time step)
-
-GitHub Actions cannot deploy due to a billing lock on the account. Use branch deployment instead:
-
-1. Open **Settings → Pages**: https://github.com/udaykumar-bejjam/Chitti-Profile/settings/pages
-2. Under **Build and deployment → Source**, select **Deploy from a branch**
-3. Branch: **`gh-pages`** · Folder: **`/ (root)`**
-4. Click **Save** — the site goes live in ~1 minute
+- **Chitti profile:** https://udaykumar-bejjam.github.io/Chitti-Profile/chitti-profile/
+- **Uday profile:** https://udaykumar-bejjam.github.io/Chitti-Profile/uday-profile/
 
 ## Files
 
 | File / Folder | Description |
 |---------------|-------------|
-| `index.html` | Jessika animated profile landing page |
-| `jessika_resume.pdf` | Jessika resume (downloadable) |
-| `jessika_resume.html` | Jessika editable resume source |
+| `index.html` | Chitti / Jessika animated profile landing page |
+| `profile.pdf` | Chitti downloadable profile (RequiredFormat) |
+| `jessika_resume.html` | Editable profile / resume HTML source |
+| `jessika_resume_print.pdf` | Print-friendly resume PDF |
+| `chitti-profile/` | Dedicated Chitti profile path (same updated profile) |
 | `uday-profile/` | Uday online profile + tech resume |
 | `uday-profile/index.html` | Uday profile landing page |
 | `uday-profile/uday_resume.html` | Technology-themed resume (HTML) |
@@ -40,8 +37,11 @@ GitHub Actions cannot deploy due to a billing lock on the account. Use branch de
 python -m http.server 8000
 ```
 
-Open http://localhost:8000/ or http://localhost:8000/uday-profile/
+Open:
+- http://localhost:8000/
+- http://localhost:8000/chitti-profile/
+- http://localhost:8000/uday-profile/
 
 ## Deployment
 
-GitHub Pages is deployed automatically via GitHub Actions on push to `master`.
+GitHub Pages deploys automatically via GitHub Actions on push to `master`.
