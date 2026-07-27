@@ -52,6 +52,18 @@ def delete_paragraph(paragraph) -> None:
     paragraph._element.getparent().remove(paragraph._element)
 
 
+def compact_for_two_pages(doc: Document) -> None:
+    """Trim a small amount of vertical space to keep the resume on two pages."""
+    paragraphs = doc.paragraphs
+
+    for idx in (5, 7, 42, 49, 51):
+        paragraphs[idx].paragraph_format.space_before = Pt(9)
+
+    paragraphs[2].paragraph_format.space_after = Pt(9)
+    for idx in (3, 4, 5, 6):
+        paragraphs[idx].paragraph_format.space_after = Pt(4)
+
+
 def build_document() -> Document:
     doc = Document(TEMPLATE)
     p = doc.paragraphs
@@ -147,6 +159,7 @@ def build_document() -> Document:
         "Foundational familiarity with laboratory analysis workflows and data interpretation",
     )
 
+    compact_for_two_pages(doc)
     return doc
 
 
