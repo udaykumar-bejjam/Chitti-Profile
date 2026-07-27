@@ -115,14 +115,26 @@ def build_document() -> Document:
         "Maintained consistency throughout school and college",
     )
 
-    set_bullet(p[37], "Chromatography – ", "HPLC and separation-based analytical methods")
-    set_bullet(p[38], "Electrophoresis – ", "Gel electrophoresis and nucleic acid analysis")
+    set_bullet(
+        p[37],
+        "Microbiology Techniques – ",
+        "Bacterial culture, staining techniques, microscopy, and pure culture maintenance",
+    )
+    set_bullet(
+        p[38],
+        "Molecular Biology – ",
+        "DNA extraction, gel electrophoresis, and PCR techniques",
+    )
     set_bullet(
         p[39],
-        "Analytical Techniques – ",
-        "Foundational familiarity with laboratory analysis workflows and data interpretation",
+        "Immunology – ",
+        "Basic principles of immune response and antigen-antibody interactions",
     )
-    delete_paragraph(doc.paragraphs[40])
+    set_bullet(
+        p[40],
+        "Microbiology – ",
+        "Culture techniques, staining, and microscopy",
+    )
 
     return doc
 
