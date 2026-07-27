@@ -115,25 +115,36 @@ def build_document() -> Document:
         "Maintained consistency throughout school and college",
     )
 
+    p = doc.paragraphs
+    new_p = deepcopy(p[34]._element)
+    p[33]._element.addnext(new_p)
+    analytical_para = Paragraph(new_p, p[33]._parent)
     set_bullet(
-        p[37],
+        analytical_para,
+        "Analytical Basics – ",
+        "Introductory HPLC exposure and strong academic grounding in scientific analysis",
+    )
+
+    p = doc.paragraphs
+    set_bullet(
+        p[38],
         "Microbiology Techniques – ",
         "Bacterial culture, staining techniques, microscopy, and pure culture maintenance",
     )
     set_bullet(
-        p[38],
+        p[39],
         "Molecular Biology – ",
         "DNA extraction, gel electrophoresis, and PCR techniques",
     )
     set_bullet(
-        p[39],
+        p[40],
         "Immunology – ",
         "Basic principles of immune response and antigen-antibody interactions",
     )
     set_bullet(
-        p[40],
-        "Microbiology – ",
-        "Culture techniques, staining, and microscopy",
+        p[41],
+        "Analytical Techniques – ",
+        "Foundational familiarity with laboratory analysis workflows and data interpretation",
     )
 
     return doc
