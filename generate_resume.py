@@ -9,13 +9,28 @@ from copy import deepcopy
 from pathlib import Path
 
 from docx import Document
-from docx.shared import Pt, RGBColor
+from docx.shared import Pt
 from docx.text.paragraph import Paragraph
 
 ROOT = Path(__file__).resolve().parent
 TEMPLATE = ROOT / "chinni_resume_fresher.docx"
 OUTPUT_DOCX = ROOT / "jessika_resume.docx"
 OUTPUT_PDF = ROOT / "Jessika_Seedarla_Profile.pdf"
+
+CORE_SKILLS = [
+    "PCR",
+    "ELISA",
+    "Chromatography",
+    "Electrophoresis",
+    "Gram staining",
+    "Sterilization techniques",
+    "DNA isolation",
+    "Blotting techniques",
+    "Replication of DNA",
+    "Transcription",
+    "Translation",
+    "Data documentation",
+]
 
 
 def set_run_text(run, text: str) -> None:
@@ -31,8 +46,16 @@ def set_bullet(paragraph, label: str, description: str) -> None:
         set_run_text(runs[0], f"•\t{label}{description}")
 
 
+def set_skill_bullet(paragraph, skill: str) -> None:
+    runs = paragraph.runs
+    if len(runs) >= 4:
+        set_run_text(runs[2], skill)
+        set_run_text(runs[3], "")
+    elif len(runs) == 1:
+        set_run_text(runs[0], f"•\t{skill}")
+
+
 def set_body_parts(paragraph, parts: list[tuple[str, bool]]) -> None:
-  # parts: [(text, is_bold_run)] mapped to existing runs in order
     runs = paragraph.runs
     for idx, (text, _) in enumerate(parts):
         if idx < len(runs):
@@ -42,26 +65,72 @@ def set_body_parts(paragraph, parts: list[tuple[str, bool]]) -> None:
             set_run_text(run, "")
 
 
-def insert_paragraph_after(paragraph) -> Paragraph:
-    new_p = deepcopy(paragraph._element)
-    paragraph._element.addnext(new_p)
-    return Paragraph(new_p, paragraph._parent)
-
-
 def delete_paragraph(paragraph) -> None:
     paragraph._element.getparent().remove(paragraph._element)
 
 
+def find_paragraph(doc: Document, text: str) -> int:
+    for idx, paragraph in enumerate(doc.paragraphs):
+        if paragraph.text.strip() == text:
+            return idx
+    raise ValueError(f"Paragraph not found: {text}")
+
+
+def set_core_competencies(doc: Document) -> None:
+    heading_idx = find_paragraph(doc, "Core Technical Competencies")
+    strengths_idx = find_paragraph(doc, "Personal Strengths")
+
+    bullet_start = heading_idx + 1
+    existing_bullets = strengths_idx - bullet_start
+
+    for offset in range(existing_bullets):
+        set_skill_bullet(doc.paragraphs[bullet_start + offset], CORE_SKILLS[offset])
+
+    anchor = doc.paragraphs[bullet_start]
+    for skill in CORE_SKILLS[existing_bullets:]:
+        new_p = deepcopy(anchor._element)
+        doc.paragraphs[strengths_idx - 1]._element.addnext(new_p)
+        set_skill_bullet(Paragraph(new_p, anchor._parent), skill)
+        strengths_idx += 1
+
+
 def compact_for_two_pages(doc: Document) -> None:
-    """Trim a small amount of vertical space to keep the resume on two pages."""
+    """Keep the resume within two pages after the expanded core skills section."""
     paragraphs = doc.paragraphs
 
-    for idx in (5, 7, 42, 49, 51):
-        paragraphs[idx].paragraph_format.space_before = Pt(9)
+    for text in (
+        "Career Objective",
+        "Education",
+        "Academic Projects & Laboratory Training",
+        "Certifications & Training",
+        "Laboratory Skills",
+        "Core Technical Competencies",
+        "Personal Strengths",
+        "Languages",
+        "Additional Information",
+    ):
+        paragraphs[find_paragraph(doc, text)].paragraph_format.space_before = Pt(7)
 
-    paragraphs[2].paragraph_format.space_after = Pt(9)
-    for idx in (3, 4, 5, 6):
-        paragraphs[idx].paragraph_format.space_after = Pt(4)
+    paragraphs[find_paragraph(doc, "Career Summary")].paragraph_format.space_after = Pt(3)
+    paragraphs[2].paragraph_format.space_after = Pt(7)
+
+    for text in ("Career Summary", "Career Objective"):
+        body = paragraphs[find_paragraph(doc, text) + 1]
+        body.paragraph_format.space_after = Pt(3)
+        body.paragraph_format.line_spacing = 1.08
+
+    core_start = find_paragraph(doc, "Core Technical Competencies") + 1
+    strengths_idx = find_paragraph(doc, "Personal Strengths")
+    for idx in range(core_start, strengths_idx):
+        bullet = paragraphs[idx]
+        bullet.paragraph_format.space_after = Pt(0)
+        bullet.paragraph_format.line_spacing = 1.0
+
+    for text in ("Key Attributes:", "Areas of Interest:"):
+        for paragraph in paragraphs:
+            if paragraph.text.strip().startswith(text):
+                paragraph.paragraph_format.space_after = Pt(2)
+                paragraph.paragraph_format.line_spacing = 1.05
 
 
 def build_document() -> Document:
@@ -83,7 +152,7 @@ def build_document() -> Document:
             (" seeking an opportunity in biopharma and life sciences. Brings a strong academic record as a ", False),
             ("Rank 1 B.Sc. Biotechnology graduate", True),
             (
-                " and practical laboratory exposure through dissertation research, academic projects, and analytical laboratory training. Motivated to learn industrial processes, work with SOPs, and grow in QC microbiology, analytical testing, or bioprocess support.",
+                " and practical laboratory exposure through dissertation research, academic projects, and analytical laboratory training. Motivated to learn industrial processes, work with SOPs, and grow in QC microbiology and bioprocess support.",
                 False,
             ),
         ],
@@ -137,28 +206,7 @@ def build_document() -> Document:
         "Introductory HPLC exposure and strong academic grounding in scientific analysis",
     )
 
-    p = doc.paragraphs
-    set_bullet(
-        p[38],
-        "Microbiology Techniques – ",
-        "Bacterial culture, staining techniques, microscopy, and pure culture maintenance",
-    )
-    set_bullet(
-        p[39],
-        "Molecular Biology – ",
-        "DNA extraction, gel electrophoresis, and PCR techniques",
-    )
-    set_bullet(
-        p[40],
-        "Immunology – ",
-        "Basic principles of immune response and antigen-antibody interactions",
-    )
-    set_bullet(
-        p[41],
-        "Analytical Techniques – ",
-        "Foundational familiarity with laboratory analysis workflows and data interpretation",
-    )
-
+    set_core_competencies(doc)
     compact_for_two_pages(doc)
     return doc
 
