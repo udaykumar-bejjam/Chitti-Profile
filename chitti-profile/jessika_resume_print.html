@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jessika Seedarla - Resume (Print)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --text: #1a1a1a;
-      --muted: #333333;
+      --ink: #1a1a1a;
+      --accent: #1b4f5c;
+      --body: #444444;
+      --contact: #666666;
     }
 
     * {
@@ -18,49 +19,64 @@
     }
 
     body {
-      font-family: "Inter", Arial, sans-serif;
-      font-size: 11pt;
-      line-height: 1.4;
-      color: var(--text);
+      font-family: "Carlito", "Calibri", Arial, sans-serif;
+      font-size: 11.04pt;
+      line-height: 1.25;
+      color: var(--body);
       background: #fff;
     }
 
     .page {
-      width: 8.27in;
-      min-height: 11.69in;
+      width: 8.5in;
+      min-height: 11in;
       margin: 0 auto;
-      padding: 0.55in 0.65in;
+      padding: 0.65in;
     }
 
     h1 {
-      font-size: 20pt;
+      font-family: "Caladea", "Cambria", Georgia, serif;
+      font-size: 25.92pt;
       font-weight: 700;
-      margin-bottom: 4px;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 6px;
     }
 
     .subtitle {
-      font-size: 11pt;
+      font-family: "Carlito", "Calibri", Arial, sans-serif;
+      font-size: 11.04pt;
+      font-weight: 700;
+      color: var(--accent);
       margin-bottom: 4px;
     }
 
     .contact {
-      font-size: 11pt;
-      margin-bottom: 14px;
+      font-size: 10.56pt;
+      color: var(--contact);
+      margin-bottom: 16px;
     }
 
     section {
-      margin-bottom: 12px;
+      margin-bottom: 11px;
     }
 
     h2 {
-      font-size: 11pt;
+      font-family: "Caladea", "Cambria", Georgia, serif;
+      font-size: 12pt;
       font-weight: 700;
+      color: var(--accent);
       margin-bottom: 4px;
+      line-height: 1.2;
     }
 
-    p, li {
-      font-size: 11pt;
-      color: var(--muted);
+    p {
+      font-size: 11.04pt;
+      color: var(--body);
+    }
+
+    .summary-lead {
+      font-weight: 700;
+      color: var(--ink);
     }
 
     ul {
@@ -70,8 +86,10 @@
 
     ul li {
       position: relative;
-      padding-left: 16px;
-      margin-bottom: 4px;
+      padding-left: 14px;
+      margin-bottom: 3px;
+      font-size: 11.04pt;
+      color: var(--body);
     }
 
     ul li::before {
@@ -79,41 +97,49 @@
       position: absolute;
       left: 0;
       font-weight: 700;
+      color: var(--accent);
+    }
+
+    .li-label {
+      font-weight: 700;
+      color: var(--ink);
     }
 
     .edu-item {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .edu-title {
-      font-size: 11pt;
-      font-weight: 600;
-      color: var(--text);
+      font-family: "Caladea", "Cambria", Georgia, serif;
+      font-size: 11.52pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
     }
 
     .edu-date {
-      font-size: 11pt;
-      color: var(--text);
+      font-size: 10.56pt;
+      font-weight: 700;
+      color: var(--accent);
       margin: 1px 0 2px;
     }
 
     .edu-desc {
-      font-size: 11pt;
-      color: var(--muted);
+      font-size: 11.04pt;
+      color: var(--body);
     }
 
-    .info-line {
-      font-size: 11pt;
-      color: var(--muted);
-      margin-bottom: 4px;
+    .info-line .info-label {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    @page {
+      size: letter;
+      margin: 0.65in;
     }
 
     @media print {
-      @page {
-        size: A4;
-        margin: 0.55in 0.65in;
-      }
-
       .page {
         width: auto;
         min-height: auto;
@@ -135,17 +161,18 @@
   <div class="page">
     <header>
       <h1>Jessika Seedarla</h1>
-      <p class="subtitle">M.Sc. Biotechnology (2026) · Gold Medalist · Fresher · Entry-Level Biopharma Candidate</p>
-      <p class="contact">9014643431 · chinnijessika@gmail.com · Markapur, Andhra Pradesh</p>
+      <p class="subtitle">M.Sc. Biotechnology (2026) &nbsp;·&nbsp; Gold Medalist &nbsp;·&nbsp; Fresher &nbsp;·&nbsp; Entry-Level Biopharma Candidate</p>
+      <p class="contact">9014643431 &nbsp;&nbsp;·&nbsp;&nbsp; chinnijessika@gmail.com &nbsp;&nbsp;·&nbsp;&nbsp; Markapur, Andhra Pradesh</p>
     </header>
 
     <section>
       <h2>Career Summary</h2>
       <p>
-        Recent M.Sc. Biotechnology graduate (2026) and Gold Medalist seeking an opportunity in biopharma and life sciences.
-        Brings a strong academic record as a Rank 1 B.Sc. Biotechnology graduate and practical laboratory exposure through dissertation research,
-        academic projects, and analytical laboratory training. Motivated to learn industrial processes, work with SOPs, and grow in QC microbiology,
-        analytical testing, or bioprocess support.
+        Recent <span class="summary-lead">M.Sc. Biotechnology graduate (2026) and Gold Medalist</span>
+        seeking an opportunity in biopharma and life sciences. Brings a strong academic record as a Rank 1 B.Sc. Biotechnology
+        graduate and practical laboratory exposure through dissertation research, academic projects, and analytical laboratory
+        training. Motivated to learn industrial processes, work with SOPs, and grow in QC microbiology, analytical testing,
+        or bioprocess support.
       </p>
     </section>
 
@@ -189,12 +216,12 @@
     <section>
       <h2>Academic Achievements</h2>
       <ul>
-        <li>Gold Medal in M.Sc. Biotechnology – Awarded for outstanding academic performance at Krishna University, Machilipatnam</li>
-        <li>Ranked 1st in B.Sc. Biotechnology – Consistently topped all semesters at Harshini Degree College</li>
-        <li>Top Scorer in Intermediate (BiPC) – Distinction grades with special excellence in Biology</li>
-        <li>Top Scorer in Class 10 (SSC) – Distinction with outstanding performance in Science</li>
-        <li>Merit Certificates &amp; Scholarships – Received multiple honors for academic excellence</li>
-        <li>Perfect Academic Record – Maintained consistency throughout school and college</li>
+        <li><span class="li-label">Gold Medal in M.Sc. Biotechnology – </span>Awarded for outstanding academic performance at Krishna University, Machilipatnam</li>
+        <li><span class="li-label">Ranked 1st in B.Sc. Biotechnology – </span>Consistently topped all semesters at Harshini Degree College</li>
+        <li><span class="li-label">Top Scorer in Intermediate (BiPC) – </span>Distinction grades with special excellence in Biology</li>
+        <li><span class="li-label">Top Scorer in Class 10 (SSC) – </span>Distinction with outstanding performance in Science</li>
+        <li><span class="li-label">Merit Certificates &amp; Scholarships – </span>Received multiple honors for academic excellence</li>
+        <li><span class="li-label">Perfect Academic Record – </span>Maintained consistency throughout school and college</li>
       </ul>
     </section>
 
@@ -202,15 +229,16 @@
       <h2>Academic Projects &amp; Laboratory Training</h2>
       <ul>
         <li>
-          <strong>M.Sc. Dissertation Project – Krishna University, Machilipatnam</strong> – Isolated and characterized lactic acid bacteria (LAB)
-          from spontaneously fermented fruits including apple, orange, grape, and lemon through aseptic sampling, serial dilution, and selective
-          plating on MRS agar. Purified cultures by repeated streaking and confirmed LAB identity using Gram staining, catalase, and oxidase tests,
-          recording colony morphology and microbial growth under controlled incubation.
+          <span class="li-label">M.Sc. Dissertation Project – Krishna University, Machilipatnam – </span>
+          Isolated and characterized lactic acid bacteria (LAB) from spontaneously fermented fruits including apple, orange, grape,
+          and lemon through aseptic sampling, serial dilution, and selective plating on MRS agar. Purified cultures by repeated
+          streaking and confirmed LAB identity using Gram staining, catalase, and oxidase tests, recording colony morphology
+          and microbial growth under controlled incubation.
         </li>
         <li>
-          <strong>Analytical Laboratory Training – CMS Laboratories</strong> – Completed hands-on training in HPLC (High-Performance Liquid
-          Chromatography) techniques and basic analytical laboratory procedures, developing familiarity with instrument handling, sample preparation,
-          and accurate data recording.
+          <span class="li-label">Analytical Laboratory Training – CMS Laboratories – </span>
+          Completed hands-on training in HPLC (High-Performance Liquid Chromatography) techniques and basic analytical laboratory
+          procedures, developing familiarity with instrument handling, sample preparation, and accurate data recording.
         </li>
       </ul>
     </section>
@@ -218,50 +246,50 @@
     <section>
       <h2>Certifications &amp; Training</h2>
       <ul>
-        <li>National Education Policy - NEP SAARTHI – Trained in the latest education policies and pedagogical approaches</li>
+        <li><span class="li-label">National Education Policy - NEP SAARTHI – </span>Trained in the latest education policies and pedagogical approaches</li>
       </ul>
     </section>
 
     <section>
       <h2>Laboratory Skills</h2>
       <ul>
-        <li><strong>Aseptic Technique</strong> – Sample handling, equipment care, and adherence to basic laboratory protocols</li>
-        <li><strong>Microbiology</strong> – Bacterial culture, staining techniques, microscopy, and pure culture maintenance</li>
-        <li><strong>Documentation</strong> – Clear written and verbal communication in Telugu and English for academic and lab reporting</li>
+        <li><span class="li-label">Aseptic Technique – </span>Sample handling, equipment care, and adherence to basic laboratory protocols</li>
+        <li><span class="li-label">Microbiology – </span>Bacterial culture, staining techniques, microscopy, and pure culture maintenance</li>
+        <li><span class="li-label">Documentation – </span>Clear written and verbal communication in Telugu and English for academic and lab reporting</li>
       </ul>
     </section>
 
     <section>
       <h2>Core Technical Competencies</h2>
       <ul>
-        <li><strong>Chromatography</strong> – HPLC and separation-based analytical methods</li>
-        <li><strong>Electrophoresis</strong> – Gel electrophoresis and nucleic acid analysis</li>
-        <li><strong>Analytical Techniques</strong> – Foundational familiarity with laboratory analysis workflows and data interpretation</li>
+        <li><span class="li-label">Chromatography – </span>HPLC and separation-based analytical methods</li>
+        <li><span class="li-label">Electrophoresis – </span>Gel electrophoresis and nucleic acid analysis</li>
+        <li><span class="li-label">Analytical Techniques – </span>Foundational familiarity with laboratory analysis workflows and data interpretation</li>
       </ul>
     </section>
 
     <section>
       <h2>Personal Strengths</h2>
       <ul>
-        <li><strong>Quick Learner</strong> – Eager to absorb new concepts, SOPs, and laboratory procedures on the job</li>
-        <li><strong>Hardworking &amp; Dedicated</strong> – Proven academic record reflects consistency, commitment, and disciplined preparation</li>
-        <li><strong>Detail-Oriented</strong> – Focused on accuracy in sample handling, note-taking, and careful task execution</li>
-        <li><strong>Excellent Communicator</strong> – Fluent in Telugu and English with clear communication skills</li>
-        <li><strong>Coachable</strong> – Open to guidance, feedback, and structured training in a professional setting</li>
-        <li><strong>Flexible &amp; Adaptable</strong> – Willing to relocate and take up entry-level responsibilities across laboratory teams</li>
+        <li><span class="li-label">Quick Learner – </span>Eager to absorb new concepts, SOPs, and laboratory procedures on the job</li>
+        <li><span class="li-label">Hardworking &amp; Dedicated – </span>Proven academic record reflects consistency, commitment, and disciplined preparation</li>
+        <li><span class="li-label">Detail-Oriented – </span>Focused on accuracy in sample handling, note-taking, and careful task execution</li>
+        <li><span class="li-label">Excellent Communicator – </span>Fluent in Telugu and English with clear communication skills</li>
+        <li><span class="li-label">Coachable – </span>Open to guidance, feedback, and structured training in a professional setting</li>
+        <li><span class="li-label">Flexible &amp; Adaptable – </span>Willing to relocate and take up entry-level responsibilities across laboratory teams</li>
       </ul>
     </section>
 
     <section>
       <h2>Languages</h2>
-      <p>Proficiency: Telugu (Native) · English (Advanced) · Hindi (Intermediate)</p>
+      <p><span class="info-label">Proficiency: </span>Telugu (Native) &nbsp;·&nbsp; English (Advanced) &nbsp;·&nbsp; Hindi (Intermediate)</p>
     </section>
 
     <section>
       <h2>Additional Information</h2>
-      <p class="info-line"><strong>Key Attributes:</strong> Academic Excellence · Quick Learner · Team Player · Dedicated · Bilingual · Lab-Oriented · Eager to Learn</p>
-      <p class="info-line"><strong>Areas of Interest:</strong> QC Microbiology · Cell Culture · Bioprocess Dev. · Analytical (HPLC) · Molecular Biology · Microbiology · Lab Safety</p>
-      <p class="info-line"><strong>Availability:</strong> Immediately available. Willing to relocate as required and ready to join with full commitment to learning and professional growth.</p>
+      <p class="info-line"><span class="info-label">Key Attributes: </span>Academic Excellence &nbsp;·&nbsp; Quick Learner &nbsp;·&nbsp; Team Player &nbsp;·&nbsp; Dedicated &nbsp;·&nbsp; Bilingual &nbsp;·&nbsp; Lab-Oriented &nbsp;·&nbsp; Eager to Learn</p>
+      <p class="info-line"><span class="info-label">Areas of Interest: </span>QC Microbiology &nbsp;·&nbsp; Cell Culture &nbsp;·&nbsp; Bioprocess Dev. &nbsp;·&nbsp; Analytical (HPLC) &nbsp;·&nbsp; Molecular Biology &nbsp;·&nbsp; Microbiology &nbsp;·&nbsp; Lab Safety</p>
+      <p class="info-line"><span class="info-label">Availability: </span>Immediately available. Willing to relocate as required and ready to join with full commitment to learning and professional growth.</p>
     </section>
   </div>
 </body>
