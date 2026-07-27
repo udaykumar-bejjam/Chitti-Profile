@@ -26,9 +26,7 @@ CORE_SKILLS = [
     ("Sterilization techniques – ", "Aseptic handling, autoclaving, and contamination control methods"),
     ("DNA isolation – ", "Extraction and purification of genomic DNA from biological samples"),
     ("Blotting techniques – ", "Southern, Northern, and Western blot methods for molecular analysis"),
-    ("Replication of DNA – ", "Understanding of DNA replication mechanisms and laboratory applications"),
-    ("Transcription – ", "RNA synthesis principles and gene expression analysis"),
-    ("Translation – ", "Protein synthesis processes and molecular biology applications"),
+    ("Central dogma of molecular biology – ", "Understanding of DNA replication, transcription, and translation in gene expression"),
     ("Data documentation – ", "Accurate recording, reporting, and traceability of laboratory results"),
 ]
 
@@ -78,7 +76,7 @@ def set_core_competencies(doc: Document) -> None:
     bullet_start = heading_idx + 1
     existing_bullets = strengths_idx - bullet_start
 
-    for offset in range(existing_bullets):
+    for offset in range(min(existing_bullets, len(CORE_SKILLS))):
         label, description = CORE_SKILLS[offset]
         set_skill_bullet(doc.paragraphs[bullet_start + offset], label, description)
 
@@ -88,6 +86,13 @@ def set_core_competencies(doc: Document) -> None:
         doc.paragraphs[strengths_idx - 1]._element.addnext(new_p)
         set_skill_bullet(Paragraph(new_p, anchor._parent), label, description)
         strengths_idx += 1
+
+    paragraphs = doc.paragraphs
+    strengths_idx = find_paragraph(doc, "Personal Strengths")
+    extra_bullets = strengths_idx - (heading_idx + 1) - len(CORE_SKILLS)
+    if extra_bullets > 0:
+        for _ in range(extra_bullets):
+            delete_paragraph(paragraphs[heading_idx + 1 + len(CORE_SKILLS)])
 
 
 def compact_for_two_pages(doc: Document) -> None:
