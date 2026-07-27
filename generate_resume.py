@@ -18,18 +18,18 @@ OUTPUT_DOCX = ROOT / "jessika_resume.docx"
 OUTPUT_PDF = ROOT / "Jessika_Seedarla_Profile.pdf"
 
 CORE_SKILLS = [
-    "PCR",
-    "ELISA",
-    "Chromatography",
-    "Electrophoresis",
-    "Gram staining",
-    "Sterilization techniques",
-    "DNA isolation",
-    "Blotting techniques",
-    "Replication of DNA",
-    "Transcription",
-    "Translation",
-    "Data documentation",
+    ("PCR – ", "Amplification and analysis of target DNA sequences"),
+    ("ELISA – ", "Antigen-antibody detection for qualitative and quantitative assays"),
+    ("Chromatography – ", "Separation and analysis of compounds using HPLC and related methods"),
+    ("Electrophoresis – ", "Gel-based separation of nucleic acids and proteins"),
+    ("Gram staining – ", "Differentiation of bacteria using Gram-positive and Gram-negative staining"),
+    ("Sterilization techniques – ", "Aseptic handling, autoclaving, and contamination control methods"),
+    ("DNA isolation – ", "Extraction and purification of genomic DNA from biological samples"),
+    ("Blotting techniques – ", "Southern, Northern, and Western blot methods for molecular analysis"),
+    ("Replication of DNA – ", "Understanding of DNA replication mechanisms and laboratory applications"),
+    ("Transcription – ", "RNA synthesis principles and gene expression analysis"),
+    ("Translation – ", "Protein synthesis processes and molecular biology applications"),
+    ("Data documentation – ", "Accurate recording, reporting, and traceability of laboratory results"),
 ]
 
 
@@ -46,13 +46,8 @@ def set_bullet(paragraph, label: str, description: str) -> None:
         set_run_text(runs[0], f"•\t{label}{description}")
 
 
-def set_skill_bullet(paragraph, skill: str) -> None:
-    runs = paragraph.runs
-    if len(runs) >= 4:
-        set_run_text(runs[2], skill)
-        set_run_text(runs[3], "")
-    elif len(runs) == 1:
-        set_run_text(runs[0], f"•\t{skill}")
+def set_skill_bullet(paragraph, label: str, description: str) -> None:
+    set_bullet(paragraph, label, description)
 
 
 def set_body_parts(paragraph, parts: list[tuple[str, bool]]) -> None:
@@ -84,13 +79,14 @@ def set_core_competencies(doc: Document) -> None:
     existing_bullets = strengths_idx - bullet_start
 
     for offset in range(existing_bullets):
-        set_skill_bullet(doc.paragraphs[bullet_start + offset], CORE_SKILLS[offset])
+        label, description = CORE_SKILLS[offset]
+        set_skill_bullet(doc.paragraphs[bullet_start + offset], label, description)
 
     anchor = doc.paragraphs[bullet_start]
-    for skill in CORE_SKILLS[existing_bullets:]:
+    for label, description in CORE_SKILLS[existing_bullets:]:
         new_p = deepcopy(anchor._element)
         doc.paragraphs[strengths_idx - 1]._element.addnext(new_p)
-        set_skill_bullet(Paragraph(new_p, anchor._parent), skill)
+        set_skill_bullet(Paragraph(new_p, anchor._parent), label, description)
         strengths_idx += 1
 
 

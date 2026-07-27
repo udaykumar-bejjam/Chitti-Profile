@@ -575,9 +575,38 @@
     }
 
     .skills-wrap {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
+    }
+
+    .skill-item {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      animation: chip-in 0.5s ease both;
+    }
+
+    .skill-item h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .skill-item h3 i {
+      color: var(--gold);
+      font-size: 0.82rem;
+    }
+
+    .skill-item p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
     }
 
     .skill-chip {
@@ -845,6 +874,10 @@
         padding-top: 48px;
       }
 
+      .skills-wrap {
+        grid-template-columns: 1fr;
+      }
+
       .hero-visual {
         order: -1;
         max-width: 360px;
@@ -1053,18 +1086,18 @@
           <p class="section-lead">Focused laboratory competencies aligned with biopharma and life sciences roles.</p>
         </div>
         <div class="skills-wrap">
-          <span class="skill-chip"><i class="fa-solid fa-dna" aria-hidden="true"></i> PCR</span>
-          <span class="skill-chip"><i class="fa-solid fa-vial" aria-hidden="true"></i> ELISA</span>
-          <span class="skill-chip"><i class="fa-solid fa-flask" aria-hidden="true"></i> Chromatography</span>
-          <span class="skill-chip"><i class="fa-solid fa-dna" aria-hidden="true"></i> Electrophoresis</span>
-          <span class="skill-chip"><i class="fa-solid fa-microscope" aria-hidden="true"></i> Gram staining</span>
-          <span class="skill-chip"><i class="fa-solid fa-shield-virus" aria-hidden="true"></i> Sterilization techniques</span>
-          <span class="skill-chip"><i class="fa-solid fa-dna" aria-hidden="true"></i> DNA isolation</span>
-          <span class="skill-chip"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Blotting techniques</span>
-          <span class="skill-chip"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> Replication of DNA</span>
-          <span class="skill-chip"><i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i> Transcription</span>
-          <span class="skill-chip"><i class="fa-solid fa-gears" aria-hidden="true"></i> Translation</span>
-          <span class="skill-chip"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Data documentation</span>
+          <article class="skill-item"><h3><i class="fa-solid fa-dna" aria-hidden="true"></i> PCR</h3><p>Amplification and analysis of target DNA sequences</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-vial" aria-hidden="true"></i> ELISA</h3><p>Antigen-antibody detection for qualitative and quantitative assays</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-flask" aria-hidden="true"></i> Chromatography</h3><p>Separation and analysis of compounds using HPLC and related methods</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-dna" aria-hidden="true"></i> Electrophoresis</h3><p>Gel-based separation of nucleic acids and proteins</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-microscope" aria-hidden="true"></i> Gram staining</h3><p>Differentiation of bacteria using Gram-positive and Gram-negative staining</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-shield-virus" aria-hidden="true"></i> Sterilization techniques</h3><p>Aseptic handling, autoclaving, and contamination control methods</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-dna" aria-hidden="true"></i> DNA isolation</h3><p>Extraction and purification of genomic DNA from biological samples</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Blotting techniques</h3><p>Southern, Northern, and Western blot methods for molecular analysis</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> Replication of DNA</h3><p>Understanding of DNA replication mechanisms and laboratory applications</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i> Transcription</h3><p>RNA synthesis principles and gene expression analysis</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-gears" aria-hidden="true"></i> Translation</h3><p>Protein synthesis processes and molecular biology applications</p></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Data documentation</h3><p>Accurate recording, reporting, and traceability of laboratory results</p></article>
         </div>
       </div>
     </section>
