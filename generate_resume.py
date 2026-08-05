@@ -95,6 +95,22 @@ def set_core_competencies(doc: Document) -> None:
             delete_paragraph(paragraphs[heading_idx + 1 + len(CORE_SKILLS)])
 
 
+def reorder_sections(doc: Document) -> None:
+    """Place Academic Achievements after skills and internships sections."""
+    achievements_start = find_paragraph(doc, "Academic Achievements")
+    achievements_end = find_paragraph(doc, "Academic Projects & Laboratory Training")
+    insert_before = find_paragraph(doc, "Personal Strengths")
+
+    elements = [doc.paragraphs[i]._element for i in range(achievements_start, achievements_end)]
+    anchor = doc.paragraphs[insert_before]._element
+
+    for element in elements:
+        element.getparent().remove(element)
+
+    for element in elements:
+        anchor.addprevious(element)
+
+
 def compact_for_two_pages(doc: Document) -> None:
     """Keep the resume within two pages after the expanded core skills section."""
     paragraphs = doc.paragraphs
@@ -102,6 +118,7 @@ def compact_for_two_pages(doc: Document) -> None:
     for text in (
         "Career Objective",
         "Education",
+        "Academic Achievements",
         "Academic Projects & Laboratory Training",
         "Certifications & Training",
         "Laboratory Skills",
@@ -178,12 +195,12 @@ def build_document() -> Document:
     )
     set_bullet(
         p[23],
-        "Top Scorer in Intermediate (BiPC) – ",
+        "Merit in Intermediate (BiPC) – ",
         "Distinction grades with special excellence in Biology",
     )
     set_bullet(
         p[24],
-        "Top Scorer in Class 10 (SSC) – ",
+        "Merit in Class 10 (SSC) – ",
         "Distinction with outstanding performance in Science",
     )
     set_bullet(
@@ -208,6 +225,7 @@ def build_document() -> Document:
     )
 
     set_core_competencies(doc)
+    reorder_sections(doc)
     compact_for_two_pages(doc)
     return doc
 
