@@ -95,20 +95,56 @@ def set_core_competencies(doc: Document) -> None:
             delete_paragraph(paragraphs[heading_idx + 1 + len(CORE_SKILLS)])
 
 
+
 def reorder_sections(doc: Document) -> None:
-    """Place Academic Achievements after skills and internships sections."""
-    achievements_start = find_paragraph(doc, "Academic Achievements")
-    achievements_end = find_paragraph(doc, "Academic Projects & Laboratory Training")
-    insert_before = find_paragraph(doc, "Personal Strengths")
+    """Order page-two sections: Core Technical, Laboratory Skills, Academic Achievements."""
+    section_order = [
+        "Career Summary",
+        "Career Objective",
+        "Education",
+        "Academic Projects & Laboratory Training",
+        "Certifications & Training",
+        "Core Technical Competencies",
+        "Laboratory Skills",
+        "Academic Achievements",
+        "Personal Strengths",
+        "Languages",
+        "Additional Information",
+    ]
 
-    elements = [doc.paragraphs[i]._element for i in range(achievements_start, achievements_end)]
-    anchor = doc.paragraphs[insert_before]._element
+    positions = [(heading, find_paragraph(doc, heading)) for heading in section_order]
+    positions.sort(key=lambda item: item[1])
 
-    for element in elements:
+    blocks: dict[str, list] = {}
+    for index, (heading, start) in enumerate(positions):
+        end = positions[index + 1][1] if index + 1 < len(positions) else len(doc.paragraphs)
+        blocks[heading] = [doc.paragraphs[i]._element for i in range(start, end)]
+
+    reorderable = [
+        "Academic Projects & Laboratory Training",
+        "Certifications & Training",
+        "Core Technical Competencies",
+        "Laboratory Skills",
+        "Academic Achievements",
+    ]
+    ordered_elements = []
+    for heading in reorderable:
+        ordered_elements.extend(blocks[heading])
+
+    anchor = doc.paragraphs[find_paragraph(doc, "Personal Strengths")]._element
+    for element in ordered_elements:
         element.getparent().remove(element)
-
-    for element in elements:
+    for element in ordered_elements:
         anchor.addprevious(element)
+
+
+def add_certification(doc: Document, label: str, description: str) -> None:
+    cert_idx = find_paragraph(doc, "Certifications & Training")
+    lab_idx = find_paragraph(doc, "Laboratory Skills")
+    template = doc.paragraphs[cert_idx + 1]
+    new_p = deepcopy(template._element)
+    doc.paragraphs[lab_idx]._element.addprevious(new_p)
+    set_bullet(Paragraph(new_p, template._parent), label, description)
 
 
 def compact_for_two_pages(doc: Document) -> None:
@@ -139,7 +175,14 @@ def compact_for_two_pages(doc: Document) -> None:
 
     core_start = find_paragraph(doc, "Core Technical Competencies") + 1
     strengths_idx = find_paragraph(doc, "Personal Strengths")
+    section_headings = {
+        find_paragraph(doc, "Core Technical Competencies"),
+        find_paragraph(doc, "Laboratory Skills"),
+        find_paragraph(doc, "Academic Achievements"),
+    }
     for idx in range(core_start, strengths_idx):
+        if idx in section_headings:
+            continue
         bullet = paragraphs[idx]
         bullet.paragraph_format.space_after = Pt(0)
         bullet.paragraph_format.line_spacing = 1.0
@@ -225,6 +268,11 @@ def build_document() -> Document:
     )
 
     set_core_competencies(doc)
+    add_certification(
+        doc,
+        "NSS (National Service Scheme) – ",
+        "Participated in community service and social outreach activities with 60% attendance",
+    )
     reorder_sections(doc)
     compact_for_two_pages(doc)
     return doc
