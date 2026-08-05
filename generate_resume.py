@@ -195,12 +195,12 @@ def build_document() -> Document:
     )
     set_bullet(
         p[23],
-        "Top Scorer in Intermediate (BiPC) – ",
+        "Merit in Intermediate (BiPC) – ",
         "Distinction grades with special excellence in Biology",
     )
     set_bullet(
         p[24],
-        "Top Scorer in Class 10 (SSC) – ",
+        "Merit in Class 10 (SSC) – ",
         "Distinction with outstanding performance in Science",
     )
     set_bullet(
